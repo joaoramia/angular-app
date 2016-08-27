@@ -1,0 +1,19 @@
+{
+  "name": "wallethub",
+  "version": "1.0.0",
+  "description": "wallethub-application",
+  "scripts": {
+    "start": "nodemon -e js,html,css start.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Joao Ramia",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "chalk": "^1.1.3",
+    "express": "^4.11.2",
+    "volleyball": "^1.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.3.7"
+  }
+}
