@@ -1,1 +1,3 @@
-var app = angular.module('WalletHub', []);
+'use strict';
+
+var app = angular.module('Wallet', ['ui.router']);
