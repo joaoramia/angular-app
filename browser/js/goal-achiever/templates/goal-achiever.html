@@ -1,0 +1,14 @@
+<div class="row ng-enter ng-leave">
+	<div ng-repeat="plan in plans" class="col-xs-4">
+		<h1>Year {{ plan.year }}</h1>
+		<h4>Gains: <input ng-model="plan.gains" ng-change="compute()" type="number"/></h4>
+	</div>
+	<div class="col-xs-12">
+		<h1>My goal is in three years to save up to <input ng-model="finalNetProfit" ng-change="compute('netProfit')" type="number"/></h1>
+	</div>
+	<form class="col-xs-12">
+	    <h3>input1</h3><input type="text" id="input1" ng-model="input1" maxlength="5" multiple-inputs/>
+	    <h3>input2</h3><input type="text" id="input2" ng-model="input2" maxlength="5" multiple-inputs/>
+	    <h3>input3</h3><input type="text" id="input3" ng-model="input3" maxlength="5" multiple-inputs/>
+	</form>
+</div>

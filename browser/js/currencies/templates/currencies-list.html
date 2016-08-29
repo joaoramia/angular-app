@@ -1,11 +1,11 @@
-<div class="row">
+<div class="row ng-enter ng-leave">
   <div ng-repeat="currency in allCurrencies" class="col-xs-4">
-    <a class="thumbnail" ui-sref="currency({type: currency.type})">
-      <h1>{{currency.type}}</h1>
-    </a>
+  <h1><a class="thumbnail" ui-sref="currency({id: $index})">{{currency.type}}</a></h1>
+  <h4><a class="thumbnail" ui-sref="currency({id: $index, goal: true})">My goals</a></h4>
+  <h4>Current Amount (converted to USD): {{ currency.dollarAmount | currency }}</h4>
+  <H5>Simulate value:</H5><input ng-model="currency.dollarAmount" data-usdamount/>
   </div>
   <div class="col-xs-12">
-    <h1>My total dollar amount (converting the other currencies to USD):</h1>
-    <h2>{{ getTotalDollarAmount() | currency }}</h2>
+    <h1>My total dollar amount is {{ getTotalDollarAmount() | currency }}</h1>
   </div>
 </div>

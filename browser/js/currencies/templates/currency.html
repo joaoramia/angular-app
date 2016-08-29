@@ -1,9 +1,20 @@
 <div>
 	<h3>
-	  I have</br><span>{{ currency.type }} {{ currency.amount | currency }}</span>
+	  I have <span>{{ theCurrency.type }} {{ theCurrency.amount | currency }}</span>
 	</h3>
 	</h5>
-	  Which in USD is:</br>
-	  {{ currency.dollarAmount | currency }}
+	  Which in USD is: {{ theCurrency.dollarAmount | currency }}
 	</h5>
+	<h4 ng-show="!showGoal"><a class="thumbnail" ui-sref="currency({goal: true})">My goals</a></h4>
+	<h4 ng-show="showGoal">My goal by the end of the year is to have {{ theCurrency.type }} {{ theCurrency.myGoal | currency }}</h4>
+	
+	<h5>My contacts that use this currency:</h5>
+	<table class="table">
+		<tr ng-repeat="contact in allContacts | orderBy:fx:reverse | filter:{fx: theCurrency.type}">
+		  	<td class="col-xs-4"><a ui-sref="contact({email: contact.email})">{{ contact.name }}</a></td>
+			<td class="col-xs-4">{{ contact.phone }}</td>
+			<td class="col-xs-4">{{ contact.email }}</td>
+			<td class="col-xs-4">{{ contact.fx }}</td>
+    	</tr>
+    </table>
 </div>
