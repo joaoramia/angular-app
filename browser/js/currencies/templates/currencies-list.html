@@ -1,11 +1,16 @@
-<div class="row ng-enter ng-leave">
-  <div ng-repeat="currency in allCurrencies" class="col-xs-4">
-  <h1><a class="thumbnail" ui-sref="currency({id: $index})">{{currency.type}}</a></h1>
-  <h4><a class="thumbnail" ui-sref="currency({id: $index, goal: true})">My goals</a></h4>
-  <h4>Current Amount (converted to USD): {{ currency.dollarAmount | currency }}</h4>
-  <H5>Simulate value:</H5><input ng-model="currency.dollarAmount" data-usdamount/>
-  </div>
-  <div class="col-xs-12">
-    <h1>My total dollar amount is {{ getTotalDollarAmount() | currency }}</h1>
-  </div>
+<div class="row ng-enter ng-leave add-padding">
+	<div class="col-xs-11 thumbnail task">
+		<p>
+			Task 6) Created a directive that uses a link function to change the input format to currency as user types. Please see /Browser/js/currencies/currencies.directive.js
+		</p>
+		<div ng-repeat="currency in allCurrencies" class="col-xs-4">
+			<h1><a class="thumbnail" ui-sref="currency({id: $index})">{{currency.type}}</a></h1>
+			<h4><a class="thumbnail" ui-sref="currency({id: $index, goal: true})">My goals</a></h4>
+			<h4>Current Amount (converted to USD): {{ currency.dollarAmount | currency }}</h4>
+			<H5>Simulate value:</H5><input ng-model="currency.dollarAmount" data-usdamount/>
+		</div>
+		<div class="col-xs-12">
+			<h1>My total dollar amount is {{ getTotalDollarAmount() | currency }}</h1>
+		</div>
+	</div>
 </div>

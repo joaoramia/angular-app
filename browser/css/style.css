@@ -1,8 +1,35 @@
+
+section {
+  /*padding-top: 10%;*/
+  vertical-align: center;
+}
+
+.thumbnail {
+  background: rgba(246, 247, 248, 1);
+}
+
+.add-padding {
+  padding-top: 6%;
+  padding-left: 3%;
+}
+
+.col-xs-3 {
+  padding-left: 10%;
+}
+
+.task {
+  padding-top: 1%;
+  background: rgba(240, 247, 254, 0.7);
+}
+
+.inline-headings {
+  clear: both;
+}
 /* Have to set height explicity on ui-view 
 to prevent collapsing during animation*/
 
 .ng-cloak{
-  
+
 }
 
 .ui-view-container {

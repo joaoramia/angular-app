@@ -31,11 +31,28 @@ app.controller('GoalAchieverCtrl', function ($scope) {
 
 	$scope.compute = function(itemChanged){
 		if (itemChanged === 'netProfit'){
-			let changeProportion = ($scope.finalNetProfit - $scope.previousNetProfit)/$scope.previousNetProfit; //this will take care of negative changes as well
-			for (let i = 0; i < $scope.plans.length; i++){
-				$scope.plans[i].gains += $scope.plans[i].gains*changeProportion;
+			let zeroGain; //in case one of the numbers is zero, I will add an equal proportion for all once the final sum changes, so it doesn't stay zero forever.
+
+			$scope.plans.forEach(plan => {
+				if (plan.gains <= 0) zeroGain = true;
+			})
+
+			if((zeroGain && $scope.finalNetProfit > $scope.previousNetProfit) || $scope.previousNetProfit <= 0){
+				let changeAmount = ($scope.finalNetProfit - $scope.previousNetProfit)/$scope.plans.length; //this will add the same amount to each plan, when one is zero
+
+				for (let i = 0; i < $scope.plans.length; i++){
+					$scope.plans[i].gains += changeAmount;
+					$scope.plans[i].gains = Math.floor($scope.plans[i].gains);
+				}
 			}
-			$scope.previousNetProfit = $scope.finalNetProfit;
+			else if($scope.previousNetProfit > 0){ //this will take care of infinity problems in the changeproportion variable
+				let changeProportion = ($scope.finalNetProfit - $scope.previousNetProfit)/$scope.previousNetProfit; //this will take care of negative changes as well
+				for (let i = 0; i < $scope.plans.length; i++){
+					$scope.plans[i].gains += $scope.plans[i].gains*changeProportion;
+					$scope.plans[i].gains = Math.floor($scope.plans[i].gains);
+				}
+				$scope.previousNetProfit = $scope.finalNetProfit;
+			}
 		}
 		else {
 			$scope.finalNetProfit = $scope.findFinalNetProfit();

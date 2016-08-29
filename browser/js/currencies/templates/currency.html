@@ -1,20 +1,25 @@
-<div>
-	<h3>
-	  I have <span>{{ theCurrency.type }} {{ theCurrency.amount | currency }}</span>
-	</h3>
-	</h5>
-	  Which in USD is: {{ theCurrency.dollarAmount | currency }}
-	</h5>
-	<h4 ng-show="!showGoal"><a class="thumbnail" ui-sref="currency({goal: true})">My goals</a></h4>
-	<h4 ng-show="showGoal">My goal by the end of the year is to have {{ theCurrency.type }} {{ theCurrency.myGoal | currency }}</h4>
-	
-	<h5>My contacts that use this currency:</h5>
-	<table class="table">
-		<tr ng-repeat="contact in allContacts | orderBy:fx:reverse | filter:{fx: theCurrency.type}">
-		  	<td class="col-xs-4"><a ui-sref="contact({email: contact.email})">{{ contact.name }}</a></td>
-			<td class="col-xs-4">{{ contact.phone }}</td>
-			<td class="col-xs-4">{{ contact.email }}</td>
-			<td class="col-xs-4">{{ contact.fx }}</td>
-    	</tr>
-    </table>
+<div class="row add-padding">
+	<div class="col-xs-11 thumbnail task">
+		<p>Tasks 1, 2) The state URL here has to options, one showing the goals for the specified type of currency and one just showing general information about that currency. You can also see here the CurrenciesCtrl is using the Contacts list through the ContactsFactory, and any change in the Contacts' phone numbers will be shown in this page as well.</p>
+	</div>
+	<div class="col-xs-11">
+		<h3>
+		  I have <span>{{ theCurrency.type }} {{ theCurrency.amount | currency }}</span>
+		</h3>
+		</h5>
+		  Which in USD is: {{ theCurrency.dollarAmount | currency }}
+		</h5>
+		<h4 ng-show="!showGoal"><a class="thumbnail" ui-sref="currency({goal: true})">My goals</a></h4>
+		<h4 ng-show="showGoal">My goal by the end of the year is to have {{ theCurrency.type }} {{ theCurrency.myGoal | currency }}</h4>
+		
+		<h5>My contacts that use this currency:</h5>
+		<table class="table">
+			<tr ng-repeat="contact in allContacts | orderBy:fx:reverse | filter:{fx: theCurrency.type}">
+			  	<td class="col-xs-4"><a ui-sref="contact({email: contact.email})">{{ contact.name }}</a></td>
+				<td class="col-xs-4">{{ contact.phone }}</td>
+				<td class="col-xs-4">{{ contact.email }}</td>
+				<td class="col-xs-4">{{ contact.fx }}</td>
+	    	</tr>
+	    </table>
+	</div>
 </div>

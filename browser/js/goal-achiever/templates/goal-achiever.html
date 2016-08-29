@@ -1,14 +1,20 @@
-<div class="row ng-enter ng-leave">
-	<div ng-repeat="plan in plans" class="col-xs-4">
-		<h1>Year {{ plan.year }}</h1>
-		<h4>Gains: <input ng-model="plan.gains" ng-change="compute()" type="number"/></h4>
+<div class="row ng-enter ng-leave add-padding">
+	<div class="col-xs-11 thumbnail task">
+		<p class="col-xs-9">Task 7) The following inputs are interdependent, using ng-change and a compute function that updates each input field according to the change directly in the sum value. Please note it is using Math.floor to make the calculations, which might bring up small differences between the total sum and the three inputs</p>
+		<div ng-repeat="plan in plans" class="col-xs-4">
+			<h2>Year {{ plan.year }}</h1>
+			<h4>Gains: <input ng-model="plan.gains" ng-change="compute()" type="number"/></h4>
+		</div>
+		<div class="col-xs-12">
+			<h3>My goal in three years is to save up to <input ng-model="finalNetProfit" ng-change="compute('netProfit')" type="number"/></h1>
+		</div>
 	</div>
-	<div class="col-xs-12">
-		<h1>My goal is in three years to save up to <input ng-model="finalNetProfit" ng-change="compute('netProfit')" type="number"/></h1>
+	<div class="col-xs-11 thumbnail task">
+		<p class="col-xs-9">Task 8) The following input fields were implemeneted using a directive with a link function that uses JQuery to change the focus from one input field to another according to the specifications provided.</p>
+		<form class="col-xs-12 inline-headings">
+		    <h5>Input1</h5><input type="text" id="input1" ng-model="input1" maxlength="5" multiple-inputs/>
+		    <h5>Input2</h5><input type="text" id="input2" ng-model="input2" maxlength="5" multiple-inputs/>
+		    <h5>Input3</h5><input type="text" id="input3" ng-model="input3" maxlength="5" multiple-inputs/>
+		</form>
 	</div>
-	<form class="col-xs-12">
-	    <h3>input1</h3><input type="text" id="input1" ng-model="input1" maxlength="5" multiple-inputs/>
-	    <h3>input2</h3><input type="text" id="input2" ng-model="input2" maxlength="5" multiple-inputs/>
-	    <h3>input3</h3><input type="text" id="input3" ng-model="input3" maxlength="5" multiple-inputs/>
-	</form>
 </div>

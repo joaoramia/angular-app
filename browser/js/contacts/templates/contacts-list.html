@@ -1,22 +1,25 @@
-<div class="row">
-	<table class="table">
-	    <label class="col-xs-3">Name<input ng-model="search.name"></label>
-	    <label class="col-xs-3">Email<input ng-model="search.email"></label><br>
+<div class="row add-padding">
+	<div class="col-xs-11 thumbnail task">
+		<p>Tasks 1, 2 and 4) The contacts factory has the list of 50 contacts, each with 4 properties and can be searched by name or email, or by filtering in alphabetical order for name, email and phone number. This factory intermediates the passing of data between controllers (CurrenciesCtrl and ContactsCtrl). It also allows the user to change a contact's phone number and see the changes in the currency state and everywhere else this contact shows in the app</p>
+	</div>
+	<table class="table table-hover col-xs-11">
+	    <label class="col-xs-4 thumbnail">Name<input ng-model="search.name"></label>
+	    <label class="col-xs-4 thumbnail">Email<input ng-model="search.email"></label><br><br>
 		<tr>
 	      <th>
-	        <button ng-click="sortBy('name')" class="btn active">Name</button>
+	        <button ng-click="sortBy('name')" class="thumbnail">Name</button>
 	        <span class="sortorder" ng-show="propertyName === 'name'" ng-class="{reverse: reverse}"></span>
 	      </th>
 	      <th>
-	        <button ng-click="sortBy('email')" class="btn active">Email</button>
+	        <button ng-click="sortBy('email')" class="thumbnail">Email</button>
 	        <span class="sortorder" ng-show="propertyName === 'email'" ng-class="{reverse: reverse}"></span>
 	      </th>
 	      <th>
-	        <button ng-click="sortBy('phone')" class="btn active">Phone Number</button>
+	        <button ng-click="sortBy('phone')" class="thumbnail">Phone Number</button>
 	        <span class="sortorder" ng-show="propertyName === 'phone'" ng-class="{reverse: reverse}"></span>
 	      </th>
 	      <th>
-	        <button class="btn disabled">Change Phone Number</button>
+	        <button class="btn disabled thumbnail">Change Phone Number</button>
 	      </th>
 	    </tr>
 		<tr ng-repeat="contact in allContacts | orderBy:propertyName:reverse | filter:search:strict">
