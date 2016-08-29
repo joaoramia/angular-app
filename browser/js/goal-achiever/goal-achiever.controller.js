@@ -31,7 +31,6 @@ app.controller('GoalAchieverCtrl', function ($scope) {
 
 	$scope.compute = function(itemChanged){
 		if (itemChanged === 'netProfit'){
-			console.log($scope.finalNetProfit, 'prev', $scope.previousNetProfit);
 			let changeProportion = ($scope.finalNetProfit - $scope.previousNetProfit)/$scope.previousNetProfit; //this will take care of negative changes as well
 			for (let i = 0; i < $scope.plans.length; i++){
 				$scope.plans[i].gains += $scope.plans[i].gains*changeProportion;

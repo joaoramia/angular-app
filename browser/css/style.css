@@ -1,5 +1,10 @@
 /* Have to set height explicity on ui-view 
 to prevent collapsing during animation*/
+
+.ng-cloak{
+  
+}
+
 .ui-view-container {
   position: relative;
   height: 65px;

@@ -1,3 +1,9 @@
-'use strict';
+define(['angular'], function (angular) {
+  app = angular.module('app', ['ui.router', 'ngAnimate']);
 
-var app = angular.module('Wallet', ['ui.router', 'ngAnimate']);
+  app.init = function () {
+    angular.bootstrap(document, ['app']);
+  };
+
+  return app;
+});
